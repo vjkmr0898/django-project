@@ -1,0 +1,9 @@
+body{
+    background-image: url("../image/bg.jpg");
+    background-size: cover;
+    padding-top: 0;
+}
+
+table {
+    border-collapse: collapse;
+}

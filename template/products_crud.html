@@ -1,0 +1,86 @@
+<!-- modal for add items -->
+<div class="modal" tabindex="-1" role="dialog" id="model_product">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title">Add Product</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <form id="frm" action="add_product" method="post" autocomplete="off">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="name">Product Name:</label>
+                    <input type="text" class="form-control" name="product_name"  placeholder="Product name" required pattern="[a-zA-Z\s]+">
+                </div>
+                <div class="form-group">
+                    <label for="unit">Unit:</label>
+                    <select name="unit" id="unit" required class="form-control">
+                        <option>select-unit</option>
+                        <option value="Kg">Kg</option>
+                        <option value="Lit">Lit</option>
+                        <option value="Each">Each</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="uom">Available Products</label>
+                    <input type="number" class="form-control" name="available"  placeholder="Available Products" required pattern="[0-9]+">
+                </div>
+                <div class="form-group">
+                    <label for="uom">Price per unit:</label>
+                    <input type="number" class="form-control" name="price"  placeholder="price" required pattern="[0-9]+">
+                </div>
+                <div class="form-group pull-right">
+                <input type="submit" value="submit" class="btn btn-success">
+                <input type="reset" value="clear" class="btn btn-danger">
+                </div>
+            </form>
+        </div>
+        </div>
+    </div>
+</div>
+
+    <!-- updating modal -->
+    <div id="my-modal" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title">Edit</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            <div class="modal-body">
+            <form action="update_view" method="post">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="id">Product ID</label>
+                    <input type="number" class="form-control" id="id" name="id" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="product_name">Product Name</label>
+                    <input type="text" class="form-control" id="product_name" name="product_name">
+                </div>
+                <div class="form-group">
+                    <label for="unit">Unit</label>
+                    <input type="text" class="form-control" id="units" name="unit">
+                </div>
+                <div class="form-group">
+                    <label for="price">Price</label>
+                    <input type="number" class="form-control" id="price_per_unit" name="price">
+                </div>
+                <div class="form-group">
+                    <label for="available_count">Available items</label>
+                    <input type="number" class="form-control" id="available_items" name="available_count">
+                </div>
+                <br>
+                <input type="submit" class="btn btn-primary" id="save-changes">`
+            </form>
+            </div>
+            
+        </div>
+        </div>
+    </div>
+    
